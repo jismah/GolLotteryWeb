@@ -1,13 +1,21 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+
+import Layout from "../components/Layout";
+import Header from "../components/Header";
+import Hero from '../components/Hero';
+import Footer from '../components/Footer';
+import About from '../components/about';
+import Numbers from '../components/Numbers';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <h1>Next Firebase Auth</h1>
-    </div>
+    <Layout pageTitle="Gol Lottery">
+      <Header />
+      <Hero />
+      <Numbers />
+      <About />
+      <Footer />
+    </Layout>
   )
 }
 

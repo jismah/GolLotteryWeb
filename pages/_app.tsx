@@ -1,6 +1,10 @@
-import '../styles/globals.css'
+
 import type { AppProps } from 'next/app'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '../styles/header.css';
+import '../styles/numbers.css';
+import '../styles/globals.css'
+
 import Navbar from '../components/Navbar'
 import { AuthContextProvider } from '../context/AuthContext'
 import { useRouter } from 'next/router'
@@ -13,7 +17,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <AuthContextProvider>
-      <Navbar />
       {noAuthRequired.includes(router.pathname) ? (
         <Component {...pageProps} />
       ) : (

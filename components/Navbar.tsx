@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap'
 import Link from 'next/link'
 import { useAuth } from '../context/AuthContext'
 import { useRouter } from 'next/router'
@@ -9,14 +9,18 @@ const NavbarComp = () => {
   const router = useRouter()
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Link href="/" passHref>
-          <Navbar.Brand>NextJS Firebase Auth</Navbar.Brand>
-        </Link>
+    <Navbar className='navbar navbar-dark bg-dark' expand="lg">
+      <Container fluid>
+        <span className="navbar-brand mb-0 h1">
+          <Navbar.Brand>Gol Lottery | Dashboard</Navbar.Brand>
+        </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav 
+            className="mr-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
             {user ? (
               <div>
                 <Nav.Link
@@ -30,18 +34,16 @@ const NavbarComp = () => {
               </div>
             ) : (
               <>
-                <Link href="/signup" passHref>
-                  <Nav.Link>Signup</Nav.Link>
+                <Link href="/" passHref>
+                  <Nav.Link>Back to Home</Nav.Link>
                 </Link>
-                <Link href="/login" passHref>
-                  <Nav.Link>Login</Nav.Link>
-                </Link>
+               
               </>
             )}
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </Navbar >
   )
 }
 

@@ -1,14 +1,16 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCE8an26rfTjkg8EFUjeMpUICDDx99Lj7s',
-  authDomain: 'nextjs-firebase-auth-a4852.firebaseapp.com',
-  projectId: 'nextjs-firebase-auth-a4852',
-  storageBucket: 'nextjs-firebase-auth-a4852.appspot.com',
-  messagingSenderId: '924467240098',
-  appId: '1:924467240098:web:eb6bd8b51ad23d35278bfb',
-}
+  apiKey: "AIzaSyCVzWbRBoqUS57O5a2_WHZ58b5ogNOefno",
+  authDomain: "gollottery.firebaseapp.com",
+  projectId: "gollottery",
+  storageBucket: "gollottery.appspot.com",
+  messagingSenderId: "776047002872",
+  appId: "1:776047002872:web:291149e5c88da7bfaa270d",
+  measurementId: "G-FGW9ZJQPRQ"
+};
 
-const app = initializeApp(firebaseConfig)
-export const auth = getAuth()
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth();
