@@ -12,7 +12,7 @@ const NavbarComp = () => {
     <Navbar className='navbar navbar-dark bg-dark' expand="lg">
       <Container fluid>
         <span className="navbar-brand mb-0 h1">
-          <Navbar.Brand>Gol Lottery | Dashboard</Navbar.Brand>
+          <Navbar.Brand>Gol Lottery Admin</Navbar.Brand>
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

@@ -31,9 +31,9 @@ const Footer = () => {
                             <p className="text-muted mt-4 mb-2">info@gollottery.com</p>
                             <h6 className="text-muted font-weight-normal">+1 (829) 422-4702</h6>
                             <Link href='/dashboard'>
-                                <div className="mt-4 mb-2">
+                                <a className="mt-4 mb-2">
                                     Sign In
-                                </div></Link>
+                                </a></Link>
                         </div>
                     </Col>
                     <Col lg={8}>

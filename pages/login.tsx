@@ -3,6 +3,7 @@ import Head from 'next/head'
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
+import styles from '../styles/Home.module.css'
 
 import Navbar from '../components/Navbar'
 
@@ -36,14 +37,11 @@ const Login = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <div className="card mt-5 shadow-sm p-5"
-        style={{
-          width: '40%',
-          margin: 'auto',
-        }}>
+      <div className={styles.main}
+        >
         <div className="card-body">
           <h1 className="text-center my-3 ">Log in</h1>
-          <h5 className="text-center fw-light my-3 ">Enter your credencials to acces your account</h5>
+          <h5 className="text-center fw-light my-3 ">Enter your credencials to access your account</h5>
           <Form onSubmit={handleLogin}>
             <Form.Group className="form-floating mb-3" controlId="formBasicEmail">
               <Form.Control

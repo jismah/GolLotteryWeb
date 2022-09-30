@@ -23,7 +23,7 @@ const Service = () => {
             <Row className="justify-content-center">
               <Col lg={6} md={8}>
                 <div className="title text-center">
-                  <h4 className="fw-bold text-dark">Midday (2:00 PM) - {date}</h4>
+                  <h4 className="fw-bold text-dark">Midday (1:00 PM) - {date}</h4>
                 </div>
               </Col>
 
@@ -42,7 +42,7 @@ const Service = () => {
             <Row className="pt-5 justify-content-center">
               <Col lg={6} md={8}>
                 <div className="title text-center">
-                  <h4 className="fw-bold text-dark">Night (8:00 PM) - {date}</h4>
+                  <h4 className="fw-bold text-dark">Night (7:00 PM) - {date}</h4>
                 </div>
               </Col>
 

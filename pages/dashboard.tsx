@@ -24,7 +24,7 @@ const Dashboard = () => {
         <Form>
           <Row className='pt-5'>
             <h4 className="fw-bold">
-            Winning numbers of the first batch (2:00 PM)
+            Winning numbers of the first batch (1:00 PM)
             </h4>
           </Row>
           <Row >
@@ -125,7 +125,7 @@ const Dashboard = () => {
 
           <Row className='pt-4'>
             <h4 className="fw-bold">
-            Winning numbers of the second batch (8:00 PM)
+            Winning numbers of the second batch (7:00 PM)
             </h4>
           </Row>
           <Row >
