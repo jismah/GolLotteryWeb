@@ -128,6 +128,13 @@ module.exports = import("firebase/app");;
 
 module.exports = import("firebase/auth");;
 
+/***/ }),
+
+/***/ 1492:
+/***/ ((module) => {
+
+module.exports = import("firebase/firestore");;
+
 /***/ })
 
 };
