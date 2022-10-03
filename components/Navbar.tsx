@@ -16,13 +16,20 @@ const NavbarComp = () => {
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav 
+          <Nav
             className="mr-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
             {user ? (
-              <div>
+              <>
+                <Nav.Link
+                  onClick={() => {
+                    router.push('/')
+                  }}
+                >
+                  Home
+                </Nav.Link>
                 <Nav.Link
                   onClick={() => {
                     logout()
@@ -31,13 +38,13 @@ const NavbarComp = () => {
                 >
                   Logout
                 </Nav.Link>
-              </div>
+              </>
             ) : (
               <>
                 <Link href="/" passHref>
                   <Nav.Link>Back to Home</Nav.Link>
                 </Link>
-               
+
               </>
             )}
           </Nav>

@@ -9,11 +9,13 @@ import Link from 'next/link'
 
 import { app, database } from "../config/firebase";
 import firebase from "firebase/compat/app";
-import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { collection, addDoc, Timestamp, Firestore, doc, getDoc, getFirestore } from 'firebase/firestore';
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
+
+
 
   const dbInstanceMidday = collection(database, 'WinningNumbersMidday');
   const [number1Midday, setNumber1Midday] = useState('');
@@ -345,7 +347,7 @@ const Dashboard = () => {
             Save the changes
           </Button>
 
-          <ToastContainer className="p-3" position='bottom-center'>
+          <ToastContainer className="p-3" position='bottom-end'>
             <Toast onClose={() => setShow(false)} show={show} delay={4000} autohide>
               <Toast.Header closeButton={false}>
                 <img
