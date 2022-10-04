@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/Navbar'
-import { Form, Row, Col, FormGroup, Label, Input} from 'reactstrap'
+import { Form, Row, Col, FormGroup, Label, Input } from 'reactstrap'
 import { Toast, ToastContainer, Button } from 'react-bootstrap'
 import Link from 'next/link'
 
-import { app, database } from "../config/firebase";
-import firebase from "firebase/compat/app";
-import { collection, addDoc, Timestamp, Firestore, doc, getDoc, getFirestore } from 'firebase/firestore';
+import { database } from "../config/firebase";
+import { collection, addDoc, Timestamp, query, orderBy, limit, getDocs } from 'firebase/firestore';
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
@@ -82,7 +80,6 @@ const Dashboard = () => {
     setShow(true);
   }
 
-
   return (
     <div>
       <Head>
@@ -94,7 +91,7 @@ const Dashboard = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <Link href="/dashboard">Dashboard</Link>
+          Welcome <Link href="/dashboard">Dashboard</Link>
         </h1>
 
         <Form>

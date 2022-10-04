@@ -1,10 +1,12 @@
-import { doc, getDoc, getFirestore, limit, orderBy, query } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from "reactstrap";
 import { database } from '../config/firebase';
 
 const Service = () => {
 
+  const [idDocMidday, setIdDocMidday] = useState("");
+  const [idDocNight, setIdDocNight] = useState("");
   // MIDDDAY NUMBERS
   const [Midday1, setMidday1] = useState(0);
   const [Midday2, setMidday2] = useState(0);
@@ -26,46 +28,64 @@ const Service = () => {
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
+  // const getLastDocumentIdMidday = async () => {
+  //   const docsRef = collection(database, "WinningNumbersMidday");
+  //   const q = query(docsRef, orderBy("createdAt", "desc"), limit(1));
+  //   const querySnapshot = await getDocs(q);
+  //   querySnapshot.forEach((doc) => {
+  //     console.log(doc.id, " => ", doc.data());
+  //   });
+  // }
+
   const getNumbersMidday = async () => {
-    const docRef = doc(database, "WinningNumbersMidday");
-    const docSnap = await getDoc(docRef);
-    const data = docSnap.exists() ? docSnap.data() : null;
-    if (data) {
-      setMidday1(data.number1Midday);
-      setMidday2(data.number2Midday);
-      setMidday3(data.number3Midday);
-      setMidday4(data.number4Midday);
-      setMidday5(data.number5Midday);
-      setMidday6(data.number6Midday);
-      setMidday7(data.number7Midday);
-    } else {
-      console.log("ERROR!");
-      return null;
-    }
+
+    const docsRef = collection(database, "WinningNumbersMidday");
+    const q = query(docsRef, orderBy("createdAt", "desc"), limit(1));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      if (doc.exists()) {
+        setMidday1(doc.data().number1Midday);
+        setMidday2(doc.data().number2Midday);
+        setMidday3(doc.data().number3Midday);
+        setMidday4(doc.data().number4Midday);
+        setMidday5(doc.data().number5Midday);
+        setMidday6(doc.data().number6Midday);
+        setMidday7(doc.data().number7Midday);
+      } else {
+        console.log("ERROR!");
+        return null;
+      }
+    });
   };
 
   const getNumbersNight = async () => {
-    const docRef = doc(database, "WinningNumbersNight", "4nC9SJxlgKwcKDIaaBhE");
-    const docSnap = await getDoc(docRef);
-    const data = docSnap.exists() ? docSnap.data() : null;
-    if (data) {
-      setNight1(data.number1Night);
-      setNight2(data.number2Night);
-      setNight3(data.number3Night);
-      setNight4(data.number4Night);
-      setNight5(data.number5Night);
-      setNight6(data.number6Night);
-      setNight7(data.number7Night);
-    } else {
-      console.log("ERROR!");
-      return null;
-    }
+
+    const docsRef = collection(database, "WinningNumbersNight");
+    const q = query(docsRef, orderBy("createdAt", "desc"), limit(1));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      if (doc.exists()) {
+        setNight1(doc.data().number1Night);
+        setNight2(doc.data().number2Night);
+        setNight3(doc.data().number3Night);
+        setNight4(doc.data().number4Night);
+        setNight5(doc.data().number5Night);
+        setNight6(doc.data().number6Night);
+        setNight7(doc.data().number7Night);
+      } else {
+        console.log("ERROR!");
+        return null;
+      }
+    });
   };
+
+
 
   useEffect(() => {
     getNumbersMidday();
     getNumbersNight();
-  });
+    // setTimeout(() => console.log('Initial timeout!'), 1000);
+  }, []);
 
   return (
     <section className="section" id="numbers">
