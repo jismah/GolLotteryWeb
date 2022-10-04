@@ -9,6 +9,7 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
+import Image from 'next/image'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,13 +33,11 @@ const Header = () => {
       <Navbar light expand="md">
 
         <NavbarBrand href="/">
-          <img
+          <Image
             alt="logo"
             src="/images/roundedLogo.png"
-            style={{
-              height: 80,
-              width: 80
-            }}
+            width={80}
+            height={80}
           />
           
         </NavbarBrand>
