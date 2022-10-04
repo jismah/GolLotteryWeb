@@ -32,14 +32,14 @@ const Header = () => {
     <div className={`header${sticky ? ' sticky' : ''}`}>
       <Navbar light expand="md">
 
-        <NavbarBrand href="/">
-          <Image
+        <NavbarBrand className='fw-bold text-uppercase badge bg-success text-white text-wrap fs-5' href="/">
+          {/* <Image
             alt="logo"
             src="/images/roundedLogo.png"
             width={80}
             height={80}
-          />
-          
+          /> */}
+          Gol Lottery
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
