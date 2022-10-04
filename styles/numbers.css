@@ -10,6 +10,20 @@
     border: 3px solid #254802;
 }
 
+@media screen and (max-width: 480px) {
+    .circle {
+        width: 50px;
+        margin: 10px 10px;
+        background-color: #254802;
+        line-height: 45px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        border: 3px solid #254802;
+    }
+}
+
 .card {
     padding: 1.5em .5em .5em;
     border-radius: 1em;
