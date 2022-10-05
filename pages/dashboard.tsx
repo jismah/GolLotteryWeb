@@ -11,7 +11,8 @@ import { collection, addDoc, Timestamp, query, orderBy, limit, getDocs } from 'f
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
 
 
 
@@ -36,7 +37,8 @@ const Dashboard = () => {
 
   const currentDate = new Date().getTime();
 
-  const saveNumber = () => {
+    // EVENTO DEL BOTON MEDIODIA
+  const saveNumbersMidday = () => {
     addDoc(dbInstanceMidday, {
       number1Midday: Number(number1Midday),
       number2Midday: Number(number2Midday),
@@ -56,7 +58,12 @@ const Dashboard = () => {
         setNumber6Midday(''),
         setNumber7Midday('')
     })
+    setShow(true);
+  };
 
+  // EVENTO DEL BOTON NOCHE
+  const saveNumbersNight = () => {
+   
     addDoc(dbInstanceNight, {
       number1Night: Number(number1Night),
       number2Night: Number(number2Night),
@@ -209,6 +216,24 @@ const Dashboard = () => {
               </FormGroup>
             </Col>
           </Row>
+          <FormGroup check>
+            <Input
+              id="exampleCheck"
+              name="check"
+              type="checkbox"
+              checked={checked1}
+              onChange={(e) => setChecked1(e.currentTarget.checked)}
+            />
+            <Label
+              check
+              for="exampleCheck"
+            >
+              I'm sure to make the changes
+            </Label>
+          </FormGroup>
+          <Button disabled={!checked1} variant="outline-success" onClick={saveNumbersMidday} className="btn mt-3">
+            Save Numbers
+          </Button>
 
           <Row className='pt-4'>
             <h4 className="fw-bold">
@@ -330,8 +355,8 @@ const Dashboard = () => {
               id="exampleCheck"
               name="check"
               type="checkbox"
-              checked={checked}
-              onChange={(e) => setChecked(e.currentTarget.checked)}
+              checked={checked2}
+              onChange={(e) => setChecked2(e.currentTarget.checked)}
             />
             <Label
               check
@@ -340,8 +365,8 @@ const Dashboard = () => {
               I'm sure to make the changes
             </Label>
           </FormGroup>
-          <Button disabled={!checked} variant="outline-success" onClick={saveNumber} className="btn mt-3">
-            Save the changes
+          <Button disabled={!checked2} variant="outline-success" onClick={saveNumbersNight} className="btn mt-3">
+            Save Numbers
           </Button>
 
           <ToastContainer className="p-3" position='bottom-end'>
