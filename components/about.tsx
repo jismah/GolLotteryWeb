@@ -10,7 +10,7 @@ const About = () => {
         <Row className="justify-content-center">
           <Col lg={6} md={8}>
             <div className="title text-center mb-5">
-              <h3 className="font-weight-normal text-dark">About <span className="text-success">Us</span></h3>
+              <h3 className="font-weight-normal text-dark">About<span className="text-success"> Us</span></h3>
             </div>
           </Col>
         </Row>
