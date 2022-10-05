@@ -26,7 +26,7 @@ const About = () => {
             <Row>
               <Col md={12}>
                 <h6 className="text-dark fw-bold fs-5 f-20 mb-3">What's Gol Lottery?</h6>
-                <p className="text-muted font-weight-light">Welcome! Gol Lottery Program is a Lottery made in Jamaica for the purpose of two daily draws where you can search for the winning numbers at 1:30 PM and 7:30 PM everyday on our website or our digital plataform like Facebook, Twitter, Youtube and Instagram.</p>
+                <p className="text-muted font-weight-light">Welcome! Gol Lottery Program is a Lottery made in Jamaica for the purpose of two daily draws where you can search for the winning numbers at 1:00 PM and 7:00 PM everyday on our website or our digital plataform like Facebook, Twitter, Youtube and Instagram.</p>
               </Col>
 
             </Row>
