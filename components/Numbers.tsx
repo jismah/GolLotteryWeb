@@ -1,12 +1,11 @@
 import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query } from 'firebase/firestore';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from "reactstrap";
 import { database } from '../config/firebase';
 
 const Service = () => {
 
-  const [idDocMidday, setIdDocMidday] = useState("");
-  const [idDocNight, setIdDocNight] = useState("");
   // MIDDDAY NUMBERS
   const [Midday1, setMidday1] = useState(0);
   const [Midday2, setMidday2] = useState(0);
@@ -15,6 +14,7 @@ const Service = () => {
   const [Midday5, setMidday5] = useState(0);
   const [Midday6, setMidday6] = useState(0);
   const [Midday7, setMidday7] = useState(0);
+  const [dateMidday, setDateMidday] = useState('');
 
   // NIGHT NUMBERS
   const [Night1, setNight1] = useState(0);
@@ -24,19 +24,9 @@ const Service = () => {
   const [Night5, setNight5] = useState(0);
   const [Night6, setNight6] = useState(0);
   const [Night7, setNight7] = useState(0);
+  const [dateNight, setDateNight] = useState('');
 
-  const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
-
-  // const getLastDocumentIdMidday = async () => {
-  //   const docsRef = collection(database, "WinningNumbersMidday");
-  //   const q = query(docsRef, orderBy("createdAt", "desc"), limit(1));
-  //   const querySnapshot = await getDocs(q);
-  //   querySnapshot.forEach((doc) => {
-  //     console.log(doc.id, " => ", doc.data());
-  //   });
-  // }
-
+  
   const getNumbersMidday = async () => {
 
     const docsRef = collection(database, "WinningNumbersMidday");
@@ -51,6 +41,14 @@ const Service = () => {
         setMidday5(doc.data().number5Midday);
         setMidday6(doc.data().number6Midday);
         setMidday7(doc.data().number7Midday);
+        
+        const fireBaseTime = new Date(
+          doc.data().createdAt.seconds * 1000 + doc.data().createdAt.nanoseconds / 1000000,
+        );
+        const date = fireBaseTime.toDateString();
+        setDateMidday(date);
+
+
       } else {
         console.log("ERROR!");
         return null;
@@ -72,6 +70,13 @@ const Service = () => {
         setNight5(doc.data().number5Night);
         setNight6(doc.data().number6Night);
         setNight7(doc.data().number7Night);
+
+        const fireBaseTime = new Date(
+          doc.data().createdAt.seconds * 1000 + doc.data().createdAt.nanoseconds / 1000000,
+        );
+        const date = fireBaseTime.toDateString();
+        setDateNight(date);
+
       } else {
         console.log("ERROR!");
         return null;
@@ -84,7 +89,6 @@ const Service = () => {
   useEffect(() => {
     getNumbersMidday();
     getNumbersNight();
-    // setTimeout(() => console.log('Initial timeout!'), 1000);
   }, []);
 
   return (
@@ -103,7 +107,7 @@ const Service = () => {
             <Row className="justify-content-center">
               <Col lg={6} md={8}>
                 <div className="title text-center">
-                  <h4 className="fw-bold text-dark">Midday (1:00 PM) - {date}</h4>
+                  <h4 className="fw-bold text-dark">Midday (1:00 PM) - {dateMidday}</h4>
                 </div>
               </Col>
 
@@ -122,7 +126,7 @@ const Service = () => {
             <Row className="pt-5 justify-content-center">
               <Col lg={6} md={8}>
                 <div className="title text-center">
-                  <h4 className="fw-bold text-dark">Night (7:00 PM) - {date}</h4>
+                  <h4 className="fw-bold text-dark">Night (7:00 PM) - {dateNight}</h4>
                 </div>
               </Col>
 
