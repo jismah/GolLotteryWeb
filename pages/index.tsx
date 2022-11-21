@@ -6,15 +6,17 @@ import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import About from '../components/about';
 import Numbers from '../components/Numbers';
+import Page404 from '../pages/404';
 
 const Home: NextPage = () => {
   return (
     <Layout pageTitle="Gol Lottery">
-      <Header />
+      {/* <Header />
       <Hero />
       <Numbers />
       <About />
-      <Footer />
+      <Footer /> */}
+      <Page404 />
     </Layout>
   )
 }
