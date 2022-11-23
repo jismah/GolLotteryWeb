@@ -14,8 +14,6 @@ const Dashboard = () => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
 
-
-
   const dbInstanceMidday = collection(database, 'WinningNumbersMidday');
   const [number1Midday, setNumber1Midday] = useState('');
 
