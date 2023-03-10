@@ -16,6 +16,7 @@ const Home: NextPage = () => {
       <Numbers />
       <About />
       <Footer />
+      
       {/* <Page404 /> */}
     </Layout>
   )
