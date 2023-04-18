@@ -16,11 +16,11 @@ const About = () => {
         </Row>
         <Row>
           <Col md={3}>
-            <img
+            {/* <img
               className="img-fluid rounded"
               alt="logo"
               src="/images/gollotteryLogo.jpeg"
-            />
+            /> */}
           </Col>
           <Col md={{ size: 7, offset: 1 }}>
             <Row>
